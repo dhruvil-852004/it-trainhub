@@ -8,6 +8,7 @@ import {
 import { AuthProvider, useAuth } from "./hooks/useAuth";
 import DashboardPage from "./pages/DashboardPage";
 import LoginPage from "./pages/LoginPage";
+import PartnerPage from "./pages/PartnerPage";
 
 const rootRoute = createRootRoute();
 
@@ -17,7 +18,9 @@ function LoginGuard() {
     router.navigate({ to: "/dashboard" });
     return null;
   }
-  return <LoginPage />;
+  return (
+    <LoginPage onPartnerClick={() => router.navigate({ to: "/partner" })} />
+  );
 }
 
 function DashboardGuard() {
@@ -41,7 +44,16 @@ const dashboardRoute = createRoute({
   path: "/dashboard",
 }).update({ component: DashboardGuard });
 
-const routeTree = rootRoute.addChildren([loginRoute, dashboardRoute]);
+const partnerRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/partner",
+}).update({ component: PartnerPage });
+
+const routeTree = rootRoute.addChildren([
+  loginRoute,
+  dashboardRoute,
+  partnerRoute,
+]);
 
 const router = createRouter({
   routeTree,

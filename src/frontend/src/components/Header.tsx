@@ -1,4 +1,4 @@
-import { ChevronDown, Code2, Menu, X } from "lucide-react";
+import { ChevronDown, Code2, Handshake, Menu, X } from "lucide-react";
 import { useState } from "react";
 
 const navLinks = [
@@ -8,7 +8,11 @@ const navLinks = [
   { label: "Resources", href: "#resources", hasDropdown: true },
 ];
 
-export default function Header() {
+interface HeaderProps {
+  onPartnerClick?: () => void;
+}
+
+export default function Header({ onPartnerClick }: HeaderProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
@@ -28,7 +32,7 @@ export default function Header() {
               <Code2 className="w-4 h-4 text-white" strokeWidth={2.5} />
             </div>
             <span className="font-display font-bold text-lg text-[oklch(0.94_0.02_280)] tracking-tight">
-              Kode<span className="text-accent">Masters</span>
+              IT <span className="text-accent">TrainHub</span>
             </span>
           </a>
 
@@ -50,6 +54,24 @@ export default function Header() {
                 )}
               </a>
             ))}
+            {/* Partner With Us */}
+            <button
+              type="button"
+              onClick={onPartnerClick}
+              className="flex items-center gap-1.5 px-4 py-2 text-sm font-body font-semibold transition-smooth rounded-lg"
+              style={{ color: "oklch(0.7 0.22 200)" }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLButtonElement).style.background =
+                  "oklch(0.7 0.22 200 / 0.10)";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLButtonElement).style.background = "";
+              }}
+              data-ocid="header.nav_link.partner_with_us"
+            >
+              <Handshake className="w-3.5 h-3.5" />
+              Partner With Us
+            </button>
           </nav>
 
           {/* CTA */}
@@ -106,6 +128,20 @@ export default function Header() {
                 )}
               </a>
             ))}
+            {/* Partner With Us — mobile */}
+            <button
+              type="button"
+              onClick={() => {
+                setMobileOpen(false);
+                onPartnerClick?.();
+              }}
+              className="w-full flex items-center gap-2 px-4 py-2.5 text-sm font-body font-semibold rounded-lg transition-smooth"
+              style={{ color: "oklch(0.7 0.22 200)" }}
+              data-ocid="header.mobile_nav_link.partner_with_us"
+            >
+              <Handshake className="w-4 h-4" />
+              Partner With Us
+            </button>
             <div className="pt-3 px-4 flex flex-col gap-2">
               <a
                 href="#login"

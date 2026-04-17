@@ -6,7 +6,11 @@ import HeroSection from "../components/HeroSection";
 import LoginCard from "../components/LoginCard";
 import { useAuth } from "../hooks/useAuth";
 
-export default function LoginPage() {
+interface LoginPageProps {
+  onPartnerClick?: () => void;
+}
+
+export default function LoginPage({ onPartnerClick }: LoginPageProps) {
   const { login, isAuthenticated } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -32,7 +36,7 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[oklch(0.10_0.025_280)]">
-      <Header />
+      <Header onPartnerClick={onPartnerClick} />
       <main className="flex-1">
         <HeroSection>
           <LoginCard

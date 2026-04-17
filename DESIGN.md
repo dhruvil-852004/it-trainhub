@@ -51,10 +51,18 @@ Tech-forward, bold yet refined. Inspiration: Linear, Stripe, Apple. Modern SaaS 
 - **No:** bounce, spring, or playful animations — strictly professional tech feel
 
 ## Differentiation
-Hero section features animated gradient accent text on headline, creating visual momentum. Login form is elevated and centered, drawing focus. Feature cards below showcase training benefits with icon + text stacking. Smooth transitions on all interactive elements create premium feel.
+Hero section features animated gradient accent text on headline, creating visual momentum. Login form is elevated and centered, drawing focus. Feature cards below showcase training benefits with icon + text stacking. Partnership page adds B2B-focused tier cards with hover effects and benefit highlights. Smooth transitions on all interactive elements create premium feel.
 
 ## Responsive Design
-Mobile-first approach: `sm:` tablet overrides, `md:` desktop refinements. Hero scales down for mobile, form remains prominent. Features stack vertically on mobile, grid on desktop.
+Mobile-first approach: `sm:` tablet overrides, `md:` desktop refinements. Hero scales down for mobile, form remains prominent. Partnership tiers and features stack vertically on mobile (`flex-col`), grid layout on desktop (`grid cols-3` or `cols-2`).
 
 ## Dark Mode
 Fully supported with dedicated palette. Primary shifts to brighter indigo `0.7 0.18 265`, backgrounds darken to `0.13 0.02 280`. Maintains visual hierarchy and legibility in both modes.
+
+## Partner With Us Page
+- **Hero:** Headline + subheading with gradient accent on key terms
+- **Tier Cards:** Three partnership levels (Standard, Professional, Enterprise) with features list and CTA
+- **Benefits:** Icon + text blocks (revenue sharing, tech stack, support, growth metrics)
+- **Process:** Steps or timeline for partnership onboarding
+- **FAQ:** Common partnership questions and answers
+- **Footer CTA:** Prominent partnership inquiry button
