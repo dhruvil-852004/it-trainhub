@@ -1,0 +1,20 @@
+{
+  "overview": "A creative, modern login page for an IT training company — featuring a hero section, training highlights, authentication form, and responsive layout with a professional tech aesthetic.",
+  "features": [
+    "Creative hero banner with company branding and tagline",
+    "Login form with email/password fields and validation",
+    "Feature cards showcasing training offerings",
+    "Responsive layout for desktop, tablet, and mobile",
+    "Smooth hover effects and modern gradient design",
+    "Navigation header and footer with company info"
+  ],
+  "category": "business",
+  "tags": [
+    "login",
+    "it-training",
+    "landing-page",
+    "authentication",
+    "corporate"
+  ],
+  "last_updated": "2026-04-17T05:53:50.749Z"
+}

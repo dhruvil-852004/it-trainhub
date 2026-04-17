@@ -1,0 +1,46 @@
+// Version: 1.0.0
+type Course__388460598 =
+  {
+    category : Text;
+    duration : Text;
+    enrollment : Nat;
+    id : Text;
+    level : Text;
+    name : Text;
+    status : Text
+  };
+type Data__791452850<K, V> =
+  {var count : Nat__490723111; kvs : [var ?(K, V)]};
+type Internal__8484328<K, V> =
+  {children : [var ?Node__46230540<K, V>]; data : Data__791452850<K, V>};
+type Leaf__809889148<K, V> = {data : Data__791452850<K, V>};
+type Nat__490723111 = Nat__920180692;
+type Nat__920180692 = Nat;
+type Node__46230540<K, V> =
+  {#internal : Internal__8484328<K, V>; #leaf : Leaf__809889148<K, V>};
+type Session__107932720 = {createdAt : Int; email : Text; role : Text};
+type User__831686142 = {email : Text; passwordHash : Text; role : Text};
+actor {
+  stable FNV_OFFSET : Nat;
+  stable FNV_PRIME : Nat;
+  stable HEX_CHARS : [Text];
+  stable MOD : Nat;
+  stable PEPPER : Text;
+  stable SESSION_TTL_NS : Int;
+  stable courses :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?Course__388460598]];
+      var elementIndex : Nat__490723111
+    };
+  stable sessions :
+    {
+      var root : Node__46230540<Text, Session__107932720>;
+      var size : Nat__490723111
+    };
+  stable users :
+    {
+      var root : Node__46230540<Text, User__831686142>;
+      var size : Nat__490723111
+    }
+};

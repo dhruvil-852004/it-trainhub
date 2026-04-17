@@ -1,0 +1,41 @@
+type Stats = 
+ record {
+   activeCourses: nat;
+   certifications: nat;
+   totalStudents: nat;
+   trainers: nat;
+ };
+type Course = 
+ record {
+   category: text;
+   duration: text;
+   enrollment: nat;
+   id: text;
+   level: text;
+   name: text;
+   status: text;
+ };
+service : {
+  getCourses: () -> (vec Course) query;
+  getStats: () -> (Stats) query;
+  login: (email: text, password: text) ->
+   (variant {
+      err: text;
+      ok: record {
+            sessionToken: text;
+            user: record {
+                    email: text;
+                    role: text;
+                  };
+          };
+    });
+  logout: (token: text) -> ();
+  verifySession: (token: text) ->
+   (variant {
+      err: text;
+      ok: record {
+            email: text;
+            role: text;
+          };
+    });
+}
